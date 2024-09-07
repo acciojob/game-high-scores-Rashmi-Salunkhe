@@ -13,7 +13,7 @@ function saveScore() {
     localStorage.setItem("highScores", JSON.stringify(highScores));
     nameInput.value = "";
     scoreInput.value = "";
-    showScores();
+    showScores(); // Call showScores after saving
   } else {
     alert("Please enter a valid name and score.");
   }
@@ -32,6 +32,7 @@ function getHighScores() {
 // Show scores in div
 function showScores() {
   const highScores = getHighScores();
+  highScores.sort((a, b) => b.score - a.score); // Sort in descending order
   if (highScores.length > 0) {
     scoresDiv.innerHTML = `
       <table>
