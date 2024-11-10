@@ -4,7 +4,7 @@ const scoresDiv = document.getElementById("scores");
 
 // Save score to Local Storage
 function saveScore() {
-  const name = nameInput.value;
+  const name = nameInput.value.trim();
   const score = parseInt(scoreInput.value);
 
   if (name && !isNaN(score)) {
@@ -53,6 +53,6 @@ function showScores() {
       </table>
     `;
   } else {
-    scoresDiv.innerHTML = "No scores yet";
+    scoresDiv.innerHTML = "<p>No scores yet</p>";
   }
 }
